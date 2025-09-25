@@ -9,15 +9,17 @@ This project implements a complete Uniswap V2-like decentralized exchange (DEX) 
 
 - **Automated Pool Creation**: Dynamically creates liquidity pools for token pairs
 - **Smart Routing Algorithm**: Finds optimal swap paths using graph traversal and simulation
-- **Single Pool Swaps**: Demonstrates basic AMM functionality
 - **Multi-Hop Swaps**: Executes complex token swaps across multiple pools
+- **Single Pool Swaps**: Demonstrates basic AMM functionality
 - **Balance Tracking**: Shows before/after balances for transparency
+- **Comprehensive Summary**: Final statistics including fees, volume, and efficiency metrics
 - **Clean Code Architecture**: Well-structured, maintainable implementation with helper functions
 
 **Recent Improvements:**
 - ✅ Code cleanup: Removed redundancies and optimized structure
 - ✅ Helper functions: Added `logBalances()` for consistent balance tracking
 - ✅ Single swap demonstration: Clear showcase of basic AMM mechanics
+- ✅ Final summary: Comprehensive statistics and final balance overview
 - ✅ Enhanced documentation: Updated to reflect all code changes
 
 ## 📋 Prerequisites
@@ -146,6 +148,11 @@ The demo implements a sophisticated routing system:
 - Handles token transfers between pools
 - Shows step-by-step balance changes
 
+### Step 6: Final Summary
+- Displays final balances for all tokens
+- Calculates and shows comprehensive statistics
+- Summarizes total volume, fees, and routing efficiency
+
 ## 🎨 Key Features
 
 ### Automated Pool Management
@@ -242,29 +249,49 @@ const bestPath = paths.reduce((best, current) => {
 ✅ Factory deployed at: 0x...
 ✅ TokenA deployed at: 0x...
 
-� Step 3: Testing Single Pool Swap
+🔄 Step 3: Testing Single Pool Swap
 💱 Swapping 10 TokenA for TokenB in pool A-B...
 
+```
 📊 Balances before swap:
-   TokenA: 999999999999999999998000.0
-   TokenB: 999999999999999999998000.0
+   TokenA: 1,000,000,000,000,000,000
+   TokenB: 1,000,000,000,000,000,000
 
 📊 Balances after swap:
-   TokenA: 999999999999999999997999.87...
-   TokenB: 999999999999999999998000.0
-✅ Swap completed! Received 9.87 TokenB
+   TokenA: 999,999,999,999,999,999.871580343970612988
+   TokenB: 1,000,000,000,000,000,000
+✅ Swap completed! Received 9.871580343970612988 TokenB
 
 🌐 Step 4: Multi-Hop Swap with Smart Routing
-�🔍 Finding optimal swap path from TokenA to TokenD...
+🔍 Finding optimal swap path from TokenA to TokenD...
 📋 Found 2 possible path(s):
    Path 1: A → D
    Path 2: A → B → C → D
 
 ⚖️ Simulating swaps to find the best path...
 ✅ Best path selected: A → D
-💰 Expected output: 9.87 TokenD
+💰 Expected output: 9.871580343970612988 TokenD
 
-🎉 Multi-hop swap completed! Received 9.87 TokenD
+🎉 Multi-hop swap completed! Received 9.871580343970612988 TokenD
+
+📊 Step 6: Final Summary
+📊 Final balances for all tokens:
+   TokenA: 999,999,999,999,999,989.871580343970612988
+   TokenB: 1,000,000,000,000,000,000
+   TokenC: 1,000,000,000,000,000,000
+   TokenD: 1,000,000,000,000,000,009.871580343970612988
+
+📈 Demo Statistics:
+   💰 TokenA spent: 20.0 (10 in single swap + 10 in multi-hop)
+   💰 TokenD received: 9.871580343970612988 (from multi-hop swap)
+   💰 TokenB received: 9.871580343970612988 (from single swap)
+   💸 Total fees paid: 0.06 (0.3% per swap)
+   🛣️ Routing efficiency: 2 swaps from 2 possible paths
+   🏊 Pools utilized: 4 liquidity pools
+   📊 Net swap result: 20 A input → 19.743160687941225976 tokens output
+   📊 Total swap volume: 20 tokens
+   ✅ All operations successful
+```
 ```
 
 ## 🎓 Learning Objectives
@@ -277,6 +304,7 @@ This demo helps understand:
 - DeFi protocol mechanics
 - Clean code architecture and helper functions
 - Balance tracking and transparency in DeFi
+- Performance metrics and trading statistics
 
 ## 🤝 Contributing
 
